@@ -1,4 +1,5 @@
 from random import randrange, randint
+import string
 
 
 # 1.1
@@ -95,4 +96,48 @@ def shuffle(data):
         result.append(temp)
         data.remove(temp)
     return result
+
+
+# 1.21
+def repeat():
+    input_lines = []
+    is_running = True
+    try:
+        while is_running:
+            input_lines.append(input())
+    except EOFError or KeyboardInterrupt:
+        print('you have crashed application congratulations')
+    finally:
+        [print(k) for k in input_lines[::-1]]
+
+
+# 1.22
+def product(arr1, arr2):
+    return [x * y for x, y in zip(arr1, arr2)]
+
+
+# 1.23
+def handle_index():
+    data = []
+    try:
+        data[2] = 1
+    except IndexError:
+        print("Don’t try buffer overflow attacks in Python!")
+
+
+# 1.24
+def vowels(value):
+    counter = 0
+    vowels = {'a', 'e', 'i', 'u', 'o'}
+    for k in value:
+        if k in vowels:
+            counter = counter + 1
+    return counter
+
+
+# 1.25
+def remove_punctuation(value):
+    table = str.maketrans(dict.fromkeys(string.punctuation))
+    return value.translate(table)
+
 
